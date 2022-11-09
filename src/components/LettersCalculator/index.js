@@ -5,16 +5,16 @@ import './index.css'
 import {Component} from 'react'
 
 class LettersCalculator extends Component {
-  state = {textInput: '', letCount: 0}
+  state = {textInput: ''}
 
   getEnterText = event => {
-    const enterText = event.target.value
+    const {value} = event.target
 
-    this.setState({textInput: enterText, letCount: enterText.length})
+    this.setState({textInput: value})
   }
 
   render() {
-    const {textInput, letCount} = this.state
+    const {textInput} = this.state
     return (
       <div className="app-container">
         <div className="calculators-container">
@@ -40,7 +40,7 @@ class LettersCalculator extends Component {
               value={textInput}
             />
             <div className="count-card">
-              <p className="count_letters">No.of Letters: {letCount}</p>
+              <p className="count_letters">No.of Letters: {textInput.length}</p>
             </div>
           </div>
         </div>
